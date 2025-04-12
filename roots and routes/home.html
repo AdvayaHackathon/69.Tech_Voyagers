@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Discover The Unknown</title>
+     <script type="module" scr="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"rel="stylesheet">
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }        
+        body{
+            background: #fff8f0;
+            color: #333;
+        }
+        header{
+            background: #ed733b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-group{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-group img {
+            height: 40px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #10110c;
+            font-weight: 500;
+        }
+        .hero{
+            text-align: center;
+            padding: 60px 20px;
+            background-image:url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .hero h1{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero button{
+            padding: 10px 20px;
+            font-size: 1rem;
+            background:  #f7684c;
+            color: rgb(20, 1, 19);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        section {
+            padding: 60px 40px;
+        }
+        .categories, .featured, .testimonials, .testimonals, .stays{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card{
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+        .map, .ar-section, .audio-section, .narration-container {
+            margin: 30px auto;
+            max-width: 700px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05)
+        }
+        footer {
+          background: #222;
+          color: rgb(107, 0, 0);
+          text-align: center;
+          padding: 20px;
+        }
+        footer img{
+            height: 40px;
+            margin-top: 10px;
+        }
+        /* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-weight: 500;
+  text-decoration: none;
+  color: #10110c;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #10110c;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+     </style>
+ </head>ī
+ <body>
+    <header>
+        <div class="logo-group">
+          <img src="images/hackaton_logo.jpg" alt="Hackathon Logo">
+          <h2>Discover The Unknown</h2>
+        </div>
+      
+        <nav class="navbar">
+            
+            <form id="searchForm" onsubmit="searchDestination(event)" style="display:inline-block; margin-left: 20px;">
+                <input type="text" id="searchInput" placeholder="Search destination..." style="padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button type="submit" style="padding: 5px 10px; border: none; background: #ed733b; color: white; border-radius: 5px; cursor: pointer;">Search</button>
+              </form>
+              
+              <a href="./index.html#kashi-3d">Home</a>
+
+          <div class="dropdown">
+            <a class="dropbtn" href="destination.html">Destinations ▾</a>
+            <div class="dropdown-content">
+              <a href="#destinations">Explore Destinations</a>
+              <a href="#travel-duration">Travel Duration</a>
+              <a href="#map">Map</a>
+            </div>
+          </div>
+          
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="culture.html">Culture ▾</a>
+            <div class="dropdown-content"> 
+              <a href="#cultural-markets">Cultural Markets</a>
+              <a href="#local-crafts">Local Crafts</a>
+              <a href="#accommodation">Accommodation</a>
+              <a href="#temples-heritage-sites">Temples & Heritage Sites</a>
+              <a href="#working-hours">Working Hours</a>
+              <a href="#folks-arts-music">Folk Arts & Music</a>
+              <a href="#festivals-rituals">Festivals & Rituals</a>
+            </div>
+          </div>
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="event.html">Events ▾</a>
+            <div class="dropdown-content">
+              <a href="#upcoming-events">Upcoming Events</a>
+              <!-- Add more event categories here if needed -->
+            </div>
+          </div>
+          
+          <a href="#footer">Contact</a>
+        </nav>
+      </header>
+      
+
+  
+
+        
+
+<div class="hero">
+    <h1>Discover The Unknown</h1>
+    <button
+onclick="document.getElementById('categories').scrollIntoView({ behavior :'smooth' });">Start Exploring</button>
+<div class="hero" id="hero">
+
+</div>
+
+<section id="categories">
+    <h2 style="text-align: center; margin-bottom: 30px;">Top Categories</h2>
+    <div class="categories">
+        <div class="card">Temples & Heritage sites</div>
+        <div class="card">Accommodation</div>
+        <div class="card">Folk Arts & Music</div>
+        <div class="card">Festivals & Ritiuals</div>
+        <div class="card">Local Crafts & Markets</div>
+    </div>
+</section>
+
+   
+
+    <section id="featured">
+        <h2 style="text-align:center";>Featured Spots</h2>
+        <div class="featured">
+            <div class="card">
+                <img src="images/varanasi.jpg" style="width:100%; border-radius:10px;" alt="varanasi ghat">
+                <h3>Varanasi Ghats</h3>
+                <p>The spiritual capital of India with its sacred rituals by the Ganges.</p>
+                 <button>Learn More</button>
+            </div>
+            <div class="card">
+                <img src="images/varkala.jpg" style="width:100%;border-radius:10px;" alt="Varkala Beach">
+                <h3>Varkala Cliff & Beach</h3>
+                <p>A serene desttinarion known for beaches and ancient Janardana Swami Temple.</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel-duration">
+        <h2 style="text-align:left;">Travel Duration</h2>
+        <div style="max-width:600px;margin:auto;background:#bd060600;padding:20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <h3>From Chennai</h3>
+            <ul>
+                <li><strong>To Varanasi(Train):</strong> ~34 hours</li><li><strong>To varkala(train):</strong> ~15 hours</li><li><strong>To Varnasi(Flight):</strong> ~2.5 hours</li><li><strong>To Varkala(Flight+cab):</strong> ~2 hours</li>
+            </ul>
+        </div>
+        
+        <div style="max-width:600px;margin:auto;background:#ffffff00;padding: 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <h3>From Bangalore</h3>
+            <ul>
+                <li><strong>To Varanasi(Train):</strong>~44 hours</li><li><strong>To varkala(train):</strong> ~14 hours</li><li><strong>To Varnasi(Flight):</strong> ~2.35 hours</li><li><strong>To Varkala(Flight+cab):</strong> ~2 hours</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="audio-section">
+        <h3>Devotional Audio</h3>
+        <audio controls>
+            <source src="audio/varnasi_chant.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <div class="ar-section" id="kashi-3d">
+
+        <h3>AR View-Janardana Temple(Varkala)</h3>
+        <model-viewer
+         src="models/varkala_temple.glb"
+         alt="AR Temple Model"
+         ar
+         ar-modes="scene-viewer webxr quick-look"
+         auto-rotate
+         camera-controls
+         styles="width:100%; height:400px;">
+        </model-viewer>
+    </div>
+
+    <section class="stays">
+        <h2 style="text-align:center;">Accommodation</h2>
+        <div class="card">
+            <h3>Ganga View Guest House-Varanasi</h3>
+            <p>Affordable rooms near Dashashwamedh Ghat.Perfect for spiritual travelers.</p>
+        </div>
+        <div class="card">
+            <h3>Cliff Haven-Varkala</h3>
+            <p>Seaside cottages near the cliff.Great for culture & beach lovers.</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 style="text-align:center;">What Visitors Say</h2>
+        <div class="card">
+            "Exploring Varanasi Ghats and Varkala's spiritual coast was unforgettable!"
+        </div>
+    </section>
+
+    <section id="upcoming-events" style="padding: 60px 40px;">
+
+        <h2 style="text-align: center; margin-bottom: 30px;">Upcoming Cultural Events</h2>
+        <div class="featured">
+            <div class="card">
+                <h3>Kashi Ganga Aarti Festival</h3>
+                <p><strong>Location:</strong> Varanasi Ghats</p>
+                <p><strong>Date:</strong> April 20, 2025</p>
+                <p>An awe-inspiring ritual of lights and chants along the Ganges River. A must-see for spiritual seekers.</p>
+            </div>
+            <div class="card">
+                <h3>Varkala Temple Utsavam</h3>
+                <p><strong>Location:</strong> Janardana Swami Temple, Varkala</p>
+                <p><strong>Date:</strong> May 5–12, 2025</p>
+                <p>A week-long festival featuring traditional music, processions, and rituals. Celebrated with deep devotion.</p>
+            </div>
+        </div>
+    </section>    
+
+    <section id="destinations" style="padding: 60px 40px;">
+        <h2 style="text-align: center; margin-bottom: 30px;">Explore Destinations</h2>
+        <div class="categories">
+            <!-- Destination 1 -->
+            <div class="card">
+                <img src="images/varanasi.jpg" alt="Varanasi" style="width:100%; border-radius:10px;">
+                <h3>Varanasi</h3>
+                <p>The spiritual capital of India, known for Ganga Aarti, Kashi Vishwanath Temple, and sacred ghats.</p>
+                <button onclick="alert('More details coming soon!')">Learn More</button>
+            </div>
+    
+            <!-- Destination 2 -->
+            <div class="card">
+                <img src="images/varkala.jpg" alt="Varkala" style="width:100%; border-radius:10px;">
+                <h3>Varkala</h3>
+                <p>A coastal town famous for its cliffside beach, Janardana Swami Temple, and peaceful vibes.</p>
+                <button onclick="alert('More details coming soon!')">Learn More</button>
+            </div>
+    
+            <!-- Add more destinations below -->
+        </div>
+    </section>
+    
+
+    <section id="contact" style="padding: 60px 40px; background: #f5f5f5; text-align: center;">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you! Reach out through any of the methods below:</p>
+        
+        <div style="margin-top: 20px;">
+            <p><strong>Email:</strong> <a href="mailto:info@discoverunknown.com">info@discoverunknown.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919999999999">+91 99999 99999</a></p>
+            <p><strong>Instagram:</strong> <a href="https://instagram.com/discover_unknown" target="_blank">@discover_unknown</a></p>
+        </div>
+    </section>
+    
+
+    <footer id="footer">
+        <p>&copy; 2025 Discover the unknown|Follow us on social media</p>
+        <img src="./images/hackaton_logo.jpg" alt="Hackathon Logooooooooooooo">
+    </footer>
+    </body>
+</html>
+
+
+
+

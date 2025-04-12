@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Discover The Unknown</title>
+     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"rel="stylesheet">
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }        
+        body{
+            background: #fff8f0;
+            color: #333;
+        }
+        header{
+            background: #ed733b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-group{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-group img {
+            height: 40px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #10110c;
+            font-weight: 500;
+        }
+        .hero{
+            text-align: center;
+            padding: 60px 20px;
+            background-image:url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .hero h1{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        section {
+            padding: 60px 40px;
+        }
+
+        .card{
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #culture-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+        
+        footer {
+          background: #222;
+          color: rgb(107, 0, 0);
+          text-align: center;
+          padding: 20px;
+        }
+        footer img{
+            height: 40px;
+            margin-top: 10px;
+        }
+        /* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-weight: 500;
+  text-decoration: none;
+  color: #10110c;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #10110c;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.culture-tab {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  background: #ed733b;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.culture-tab:hover {
+  background: #f95f2b;
+}
+
+
+
+
+     </style>
+ </head>
+ <body>
+
+    <script>
+        function showCultureContent(type) {
+          document.getElementById('culture-content').innerHTML = cultureData[type];
+          document.getElementById('culture-section').scrollIntoView({ behavior: 'smooth' });
+        }
+      </script>
+      
+    <header>
+        <div class="logo-group">
+          <img src="images/hackaton_logo.jpg" alt="Hackathon Logo">
+          <h2>Discover The Unknown</h2>
+        </div>
+      
+        <nav class="navbar">
+            
+            <form id="searchForm" onsubmit="searchDestination(event)" style="display:inline-block; margin-left: 20px;">
+                <input type="text" id="searchInput" placeholder="Search destination..." style="padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button type="submit" style="padding: 5px 10px; border: none; background: #ed733b; color: white; border-radius: 5px; cursor: pointer;">Search</button>
+              </form>
+              
+              <a href="index.html#kashi-3d">Home</a>
+
+            <div class="dropdown">
+            <a class="dropbtn" href="destination.html">Destinations ▾</a>
+            <div class="dropdown-content">
+              <a href="#destinations">Explore Destinations</a>
+              <a href="#travel-duration">Travel Duration</a>
+              <a href="#accommodation">Accommodation</a>
+              <a href="#temple-timings">Temple Timings</a>
+              <a href="#vehicle-rental">Vehicle Rental</a>
+              <a href="#map">Map</a>
+            </div>
+          </div>
+          
+      
+         <div class="dropdown">
+  <a class="dropbtn" href="culture.html">Culture ▾</a>
+  <div class="dropdown-content"> 
+    <a href="javascript:void(0);" onclick="showCultureContent('markets')">Cultural Markets</a>
+    <a href="javascript:void(0);" onclick="showCultureContent('crafts')">Local Crafts</a>
+    <a href="javascript:void(0);" onclick="showCultureContent('temples')">Temples & Heritage Sites</a>
+    <a href="javascript:void(0);" onclick="showCultureContent('hours')">Working Hours</a>
+    <a href="javascript:void(0);" onclick="showCultureContent('folk')">Folk Arts & Music</a>
+    <a href="javascript:void(0);" onclick="showCultureContent('festivals')">Festivals & Rituals</a>
+  </div>
+</div>
+
+          <div class="dropdown">
+            <a class="dropbtn" href="event.html">Events ▾</a>
+            <div class="dropdown-content">
+              <a href="#upcoming-events">Upcoming Events</a>
+              <!-- Add more event categories here if needed -->
+            </div>
+          </div>
+          
+          <a href="#footer">Contact</a>
+        </nav>
+      </header>
+      
+     
+  
+
+        
+
+<div class="hero">
+    <h1>Discover The Unknown</h1>
+    <button
+onclick="document.getElementById('categories').scrollIntoView({ behavior :'smooth' });"></button>
+</div>
+
+
+<section id="culture-section">
+    <h2 style="text-align: center;">Cultural Experience</h2>
+    <div style="text-align:center; margin: 20px 0;">
+      <button class="culture-tab" onclick="showCultureContent('markets')">Cultural Markets</button>
+      <button class="culture-tab" onclick="showCultureContent('crafts')">Local Crafts</button>
+      <button class="culture-tab" onclick="showCultureContent('temples')">Temples & Heritage Sites</button>
+      <button class="culture-tab" onclick="showCultureContent('hours')">Working Hours</button>
+      <button class="culture-tab" onclick="showCultureContent('folk')">Folk Arts & Music</button>
+      <button class="culture-tab" onclick="showCultureContent('festivals')">Festivals & Rituals</button>
+    </div>
+  
+    <!-- Content Container -->
+    <div id="culture-content" class="categories">
+      <!-- Default Initial Content -->
+      <div class="card">
+        <h3>Godowlia Market – Varanasi</h3>
+        <p>Famous for Banarasi silk sarees, spiritual souvenirs, and handcrafted decor.</p>
+      </div>
+      <div class="card">
+        <h3>Varkala Beach Market</h3>
+        <p>Beachside stalls offering handmade jewelry, boho clothes, and local handicrafts.</p>
+      </div>
+    </div>
+  </section>
+  
+  
+    
+  </section>
+  
+   
+
+    
+
+    
+
+   
+
+    
+   
+
+    
+
+    
+    
+
+    
+    
+  <footer id="footer">
+    <p>&copy; 2025 Discover the Unknown | Follow us on social media</p>
+
+    <div style="margin: 20px 0; color: #ccc;">
+        <p><strong>Email:</strong> <a href="mailto:info@discoverunknown.com" style="color: #f4a261;">info@discoverunknown.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919999999999" style="color: #f4a261;">+91 99999 99999</a></p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/discover_unknown" target="_blank" style="color: #f4a261;">@discover_unknown</a></p>
+    </div>
+
+    <img src="./images/hackaton_logo.jpg" alt="Hackathon Logo" />
+</footer>
+    
+    <script>
+        const cultureData = {
+          markets: `
+            <div class="card">
+              <h3>Godowlia Market – Varanasi</h3>
+              <p>Famous for Banarasi silk sarees, spiritual souvenirs, and handcrafted decor.</p>
+            </div>
+            <div class="card">
+              <h3>Varkala Beach Market</h3>
+              <p>Beachside stalls offering handmade jewelry, boho clothes, and local handicrafts.</p>
+            </div>
+          `,
+          crafts: `
+            <div class="card">
+              <h3>Thatheri Bazaar – Varanasi</h3>
+              <p>Explore traditional brass and copperware, handmade by skilled artisans.</p>
+            </div>
+            <div class="card">
+              <h3>Sivagiri Craft Center – Varkala</h3>
+              <p>Wooden carvings and handmade Kerala art items displayed by local artisans.</p>
+            </div>
+          `,
+          temples: `
+            <div class="card">
+              <h3>Kashi Vishwanath Temple – Varanasi</h3>
+              <p>One of the 12 Jyotirlingas, this sacred site sits on the banks of the Ganges.</p>
+            </div>
+            <div class="card">
+              <h3>Janardhana Swami Temple – Varkala</h3>
+              <p>Ancient temple overlooking the Arabian Sea, rich in Kerala architecture.</p>
+            </div>
+          `,
+          hours: `
+            <div class="card">
+              <h3>Temple Timings – Varanasi</h3>
+              <p>Kashi Vishwanath Temple: 3:00 AM – 11:00 PM</p>
+            </div>
+            <div class="card">
+              <h3>Temple Timings – Varkala</h3>
+              <p>Janardhana Temple: 5:00 AM – 12:00 PM & 5:00 PM – 8:00 PM</p>
+            </div>
+          `,
+          folk: `
+            <div class="card">
+              <h3>Banarasi Music – Varanasi</h3>
+              <p>Live sitar, tabla, and morning raga sessions on the ghats create a serene vibe.</p>
+            </div>
+            <div class="card">
+              <h3>Kerala Folk Dances – Varkala</h3>
+              <p>Kathakali and Mohiniyattam performances at cultural centers and local festivals.</p>
+            </div>
+          `,
+          festivals: `
+            <div class="card">
+              <h3>Dev Deepawali – Varanasi</h3>
+              <p>The ghats light up with thousands of diyas to celebrate the return of the gods.</p>
+            </div>
+            <div class="card">
+              <h3>Varkala Temple Festival</h3>
+              <p>Annual event with elephants, rituals, traditional music, and local feasts.</p>
+            </div>
+          `
+        };
+      
+        function showCultureContent(type) {
+          document.getElementById('culture-content').innerHTML = cultureData[type];
+          document.getElementById('culture-section').scrollIntoView({ behavior: 'smooth' });
+        }
+      </script>
+      
+    </body>
+</html>
+
+
+
+

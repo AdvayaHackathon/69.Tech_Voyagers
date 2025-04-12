@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Discover The Unknown</title>
+     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"rel="stylesheet">
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }        
+        body{
+            background: #fff8f0;
+            color: #333;
+        }
+        header{
+            background: #ed733b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-group{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-group img {
+            height: 40px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #10110c;
+            font-weight: 500;
+        }
+        .hero{
+            text-align: center;
+            padding: 60px 20px;
+            background-image:url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .hero h1{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero button{
+            padding: 10px 20px;
+            font-size: 1rem;
+            background:  #f7684c;
+            color: rgb(20, 1, 19);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        section {
+            padding: 60px 40px;
+        }
+        .categories, .featured, .testimonials, .testimonals, .stays{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card{
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+        .map, .ar-section, .audio-section, .narration-container {
+            margin: 30px auto;
+            max-width: 700px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05)
+        }
+        footer {
+          background: #222;
+          color: rgb(107, 0, 0);
+          text-align: center;
+          padding: 20px;
+        }
+        footer img{
+            height: 40px;
+            margin-top: 10px;
+        }
+        /* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-weight: 500;
+  text-decoration: none;
+  color: #10110c;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #10110c;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+     </style>
+ </head>
+ <body>
+    <header>
+        <div class="logo-group">
+          <img src="images/hackaton_logo.jpg" alt="Hackathon Logo">
+          <h2>Discover The Unknown</h2>
+        </div>
+      
+        <nav class="navbar">
+            
+            <form id="searchForm" onsubmit="searchDestination(event)" style="display:inline-block; margin-left: 20px;">
+                <input type="text" id="searchInput" placeholder="Search destination..." style="padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button type="submit" style="padding: 5px 10px; border: none; background: #ed733b; color: white; border-radius: 5px; cursor: pointer;">Search</button>
+              </form>
+              
+              <a href="./index.html#kashi-3d">Home</a>
+
+
+
+
+
+          <div class="dropdown">
+            <a class="dropbtn" href="./destination.html">Destinations ▾</a>
+            <div class="dropdown-content">
+              <a href="./destination.html">Explore Destinations</a>
+              <a href="#travel-duration">Travel Duration</a>
+              <a href="#map">Map</a>
+            </div>
+          </div>
+          
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="culture.html">Culture ▾</a>
+            <div class="dropdown-content"> 
+              <a href="#cultural-markets">Cultural Markets</a>
+              <a href="#local-crafts">Local Crafts</a>
+              <a href="#accommodation">Accommodation</a>
+              <a href="#temples-heritage-sites">Temples & Heritage Sites</a>
+              <a href="#working-hours">Working Hours</a>
+              <a href="#folks-arts-music">Folk Arts & Music</a>
+              <a href="#festivals-rituals">Festivals & Rituals</a>
+            </div>
+          </div>
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="event.html">Events ▾</a>
+            <div class="dropdown-content">
+              <a href="#upcoming-events">Upcoming Events</a>
+              <!-- Add more event categories here if needed -->
+            </div>
+          </div>
+          
+
+          <a href="./index.html#footer">Contact</a>
+        </nav>
+      </header>
+      
+
+  
+
+        
+
+<div class="hero">
+    <h1>Discover The Unknown</h1>
+    <button
+onclick="document.getElementById('categories').scrollIntoView({ behavior :'smooth' });">Start Exploring</button>
+</div>
+
+
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+
+   
+
+    
+
+   
+
+    
+    <div class="ar-section">
+        
+        <section id="kashi-3d" style="padding: 60px 40px; background-color: #f7f7f7;">
+            <h2 style="text-align: center; margin-bottom: 20px;">🛕 3D View – Kashi Vishwanath Temple</h2>
+            <div style="max-width: 800px; margin: auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <iframe 
+                title="Kashi Vishwanath Temple 3D Model"
+                frameborder="0"
+                allowfullscreen
+                mozallowfullscreen="true"
+                webkitallowfullscreen="true"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                xr-spatial-tracking
+                execution-while-out-of-viewport
+                execution-while-not-rendered
+                web-share
+                width="100%"
+                height="480"
+                src="https://sketchfab.com/models/9066339c9b904f1ca091e9ff2357a5e5/embed">
+              </iframe>
+            </div>
+          </section>
+          
+          
+    </div>
+
+    
+
+    <section class="testimonials">
+      
+      <!-- Existing Testimonial Card (Optional, you can leave or remove it) -->
+      
+  
+      <!-- New Feedback Form -->
+      <form id="visitorFeedback" onsubmit="submitFeedback(event)">
+          <textarea id="feedbackText" placeholder="Share your thoughts..." rows="4" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+          <button type="submit" style="padding: 10px 20px; background-color: #ed733b; color: white; border: none; border-radius: 8px; margin-top: 10px;">Submit Feedback</button>
+      </form>
+  </section>
+  
+
+    
+
+    
+    
+
+    <section id="contact" style="padding: 60px 40px; background: #f5f5f5; text-align: center;">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you! Reach out through any of the methods below:</p>
+        
+        <div style="margin-top: 20px;">
+            <p><strong>Email:</strong> <a href="mailto:info@discoverunknown.com">info@discoverunknown.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919999999999">+91 99999 99999</a></p>
+            <p><strong>Instagram:</strong> <a href="https://instagram.com/discover_unknown" target="_blank">@discover_unknown</a></p>
+        </div>
+    </section>
+    
+
+    
+
+        <footer id="footer">
+          <p>&copy; 2025 Discover the Unknown | Follow us on social media</p>
+      
+          <div style="margin: 20px 0; color: #ccc;">
+              <p><strong>Email:</strong> <a href="mailto:info@discoverunknown.com" style="color: #f4a261;">info@discoverunknown.com</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+919999999999" style="color: #f4a261;">+91 99999 99999</a></p>
+              <p><strong>Instagram:</strong> <a href="https://instagram.com/discover_unknown" target="_blank" style="color: #f4a261;">@discover_unknown</a></p>
+          </div>
+      
+          <img src="./images/hackaton_logo.jpg" alt="Hackathon Logo" />
+      </footer>
+
+      <script>
+        function submitFeedback(event) {
+            event.preventDefault();
+            
+            // Get the value of the feedback
+            const feedback = document.getElementById('feedbackText').value;
+            
+            if (feedback) {
+                // You can handle the feedback here (e.g., save to a database or display it on the page)
+                alert('Thank you for your feedback: ' + feedback);
+                
+                // Clear the textarea after submission
+                document.getElementById('feedbackText').value = '';
+            } else {
+                alert('Please enter your feedback!');
+            }
+        }
+    </script>
+    
+      
+    
+    </body>
+    <script>
+      function searchDestination(event) {
+        event.preventDefault(); // Stops the page from reloading
+    
+        const input = document.getElementById("searchInput").value.trim().toLowerCase();
+    
+        // Example search logic – you can add more destinations here
+        if (input.includes("varanasi") || input.includes("kashi")) {
+          window.location.href = "./destination.html#kashi-3d"; // jump to Kashi section
+        } else if (input.includes("varkala")) {
+          window.location.href = "./destination.html"; // or scroll to Varkala section if you have an ID
+        } else {
+          alert("Destination not found. Please try another.");
+        }
+      }
+    </script>
+    
+</html>
+
+
+
+

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Discover The Unknown</title>
+     <script type="module" scr="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"rel="stylesheet">
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }        
+        body{
+            background: #fff8f0;
+            color: #333;
+        }
+        header{
+            background: #ed733b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-group{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-group img {
+            height: 40px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #10110c;
+            font-weight: 500;
+        }
+        .hero{
+            text-align: center;
+            padding: 60px 20px;
+            background-image:url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .hero h1{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        section {
+            padding: 60px 40px;
+        }
+        .categories, .featured, .testimonials, .testimonals, .stays{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card{
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+        .map, .ar-section, .audio-section, .narration-container {
+            margin: 30px auto;
+            max-width: 700px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05)
+        }
+        footer {
+          background: #222;
+          color: rgb(107, 0, 0);
+          text-align: center;
+          padding: 20px;
+        }
+        footer img{
+            height: 40px;
+            margin-top: 10px;
+        }
+        /* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-weight: 500;
+  text-decoration: none;
+  color: #10110c;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #10110c;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+     </style>
+ </head>ī
+ <body>
+    <header>
+        <div class="logo-group">
+          <img src="images/hackaton_logo.jpg" alt="Hackathon Logo">
+          <h2>Discover The Unknown</h2>
+        </div>
+      
+        <nav class="navbar">
+      
+
+            
+            <form id="searchForm" onsubmit="searchDestination(event)" style="display:inline-block; margin-left: 20px;">
+                <input type="text" id="searchInput" placeholder="Search destination..." style="padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button type="submit" style="padding: 5px 10px; border: none; background: #ed733b; color: white; border-radius: 5px; cursor: pointer;">Search</button>
+              </form>
+              
+              <a href="index.html#kashi-3d">Home</a>
+
+          <div class="dropdown">
+            <a class="dropbtn" href="destination.html">Destinations ▾</a>
+            <div class="dropdown-content">
+              <a href="#destinations">Explore Destinations</a>
+              <a href="#travel-duration">Travel Duration</a>
+              <a href="#map">Map</a>
+            </div>
+          </div>
+          
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="culture.html">Culture ▾</a>
+            <div class="dropdown-content"> 
+              <a href="#cultural-markets">Cultural Markets</a>
+              <a href="#local-crafts">Local Crafts</a>
+              <a href="#accommodation">Accommodation</a>
+              <a href="#temples-heritage-sites">Temples & Heritage Sites</a>
+              <a href="#working-hours">Working Hours</a>
+              <a href="#folks-arts-music">Folk Arts & Music</a>
+              <a href="#festivals-rituals">Festivals & Rituals</a>
+            </div>
+          </div>
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="event.html">Events ▾</a>
+            <div class="dropdown-content">
+              <a href="#upcoming-events">Upcoming Events</a>
+              <!-- Add more event categories here if needed -->
+            </div>
+          </div>
+          
+          <a href="#footer">Contact</a>
+        </nav>
+      </header>
+      
+
+  
+
+        
+
+<div class="hero">
+    <h1>Discover The Unknown</h1>
+    <button
+onclick="document.getElementById('categories').scrollIntoView({ behavior :'smooth' });"></button>
+
+
+</div>
+
+
+
+   
+
+    
+
+    
+
+   
+    <section id="upcoming-events" style="padding: 60px 40px;">
+
+        <h2 style="text-align: center; margin-bottom: 30px;">Upcoming Cultural Events</h2>
+        <div class="featured">
+            <div class="card">
+                <h3>Kashi Ganga Aarti Festival</h3>
+                <p><strong>Location:</strong> Varanasi Ghats</p>
+                <p><strong>Date:</strong> April 20, 2025</p>
+                <p>An awe-inspiring ritual of lights and chants along the Ganges River. A must-see for spiritual seekers.</p>
+            </div>
+            
+            
+            <div class="card">
+                <h3>Varkala Temple Utsavam</h3>
+                <p><strong>Location:</strong> Janardana Swami Temple, Varkala</p>
+                <p><strong>Date:</strong> May 5–12, 2025</p>
+                <p>A week-long festival featuring traditional music, processions, and rituals. Celebrated with deep devotion.</p>
+            </div>
+        </div>
+    </section>    
+
+    <footer id="footer">
+      <p>&copy; 2025 Discover the Unknown | Follow us on social media</p>
+  
+      <div style="margin: 20px 0; color: #ccc;">
+          <p><strong>Email:</strong> <a href="mailto:info@discoverunknown.com" style="color: #f4a261;">info@discoverunknown.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+919999999999" style="color: #f4a261;">+91 99999 99999</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/discover_unknown" target="_blank" style="color: #f4a261;">@discover_unknown</a></p>
+      </div>
+  
+      <img src="./images/hackaton_logo.jpg" alt="Hackathon Logo" />
+  </footer>
+    
+
+   
+
+   
+    </body>
+</html>
+
+
+
+

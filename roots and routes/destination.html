@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Discover The Unknown</title>
+     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"rel="stylesheet">
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }        
+        body{
+            background: #fff8f0;
+            color: #333;
+        }
+        header{
+            background: #ed733b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-group{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-group img {
+            height: 40px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #10110c;
+            font-weight: 500;
+        }
+        .hero{
+            text-align: center;
+            padding: 60px 20px;
+            background-image:url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .hero h1{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        section {
+            padding: 60px 40px;
+        }
+        .categories, .featured, .testimonials, .testimonals, .stays{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card{
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+        .map, .ar-section, .audio-section, .narration-container {
+            margin: 30px auto;
+            max-width: 700px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05)
+        }
+        footer {
+          background: #222;
+          color: rgb(107, 0, 0);
+          text-align: center;
+          padding: 20px;
+        }
+        footer img{
+            height: 40px;
+            margin-top: 10px;
+        }
+        /* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-weight: 500;
+  text-decoration: none;
+  color: #10110c;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #10110c;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #ed733b;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.card button:hover {
+  background-color: #d95f25;
+}
+.card h4 {
+  margin-top: 10px;
+  color: #ed733b;
+}
+
+
+     </style>
+ </head>ī
+ <body>
+    <header>
+        <div class="logo-group">
+          <img src="images/hackaton_logo.jpg" alt="Hackathon Logo">
+          <h2>Discover The Unknown</h2>
+        </div>
+      
+        <nav class="navbar">
+            
+            <form id="searchForm" onsubmit="searchDestination(event)" style="display:inline-block; margin-left: 20px;">
+                <input type="text" id="searchInput" placeholder="Search destination..." style="padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button type="submit" style="padding: 5px 10px; border: none; background: #ed733b; color: white; border-radius: 5px; cursor: pointer;">Search</button>
+              </form>
+              
+              <a href="index.html#kashi-3d">Home</a>
+
+          <div class="dropdown">
+            <a class="dropbtn" href="destination.html">Destinations ▾</a>
+            <div class="dropdown-content">
+              <a href="#destinations">Explore Destinations</a>
+              <a href="#travel-duration">Travel Duration</a>
+              <a href="#accommodation">Accommodation</a>
+              <a href="#working-hours">Working Hours</a>
+              <a href="#vehicle-rental">Vehicle Rental</a>
+              <a href="#map">Map</a>
+            </div>
+          </div>
+          
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="culture.html">Culture ▾</a>
+            <div class="dropdown-content"> 
+              <a href="#cultural-markets">Cultural Markets</a>
+              <a href="#local-crafts">Local Crafts</a>
+             
+              <a href="#temples-heritage-sites">Temples & Heritage Sites</a>
+              <a href="#temple-timings">Temple Timings</a>
+              <a href="#folks-arts-music">Folk Arts & Music</a>
+              <a href="#festivals-rituals">Festivals & Rituals</a>
+            </div>
+          </div>
+          
+      
+          <div class="dropdown">
+            <a class="dropbtn" href="event.html">Events ▾</a>
+            <div class="dropdown-content">
+              <a href="#upcoming-events">Upcoming Events</a>
+              <!-- Add more event categories here if needed -->
+            </div>
+          </div>
+          
+          <a href="#footer">Contact</a>
+        </nav>
+      </header>
+      
+
+  
+
+        
+
+<div class="hero">
+    <h1>Discover The Unknown</h1>
+    <button
+onclick="document.getElementById('categories').scrollIntoView({ behavior :'smooth' });"></button>
+</div>
+
+
+
+   
+
+   
+
+    <section id="travel-duration">
+        <h2 style="text-align:left;">Travel Duration</h2>
+        <div style="max-width:600px;margin:auto;background:#bd060600;padding:20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <h3>From Chennai</h3>
+            <ul>
+                <li><strong>To Varanasi(Train):</strong> ~34 hours</li><li><strong>To varkala(train):</strong> ~15 hours</li><li><strong>To Varnasi(Flight):</strong> ~2.5 hours</li><li><strong>To Varkala(Flight+cab):</strong> ~2 hours</li>
+            </ul>
+        </div>
+
+        
+        <div style="max-width:600px;margin:auto;background:#ffffff00;padding: 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <h3>From Bangalore</h3>
+            <ul>
+                <li><strong>To Varanasi(Train):</strong>~44 hours</li><li><strong>To varkala(train):</strong> ~14 hours</li><li><strong>To Varnasi(Flight):</strong> ~2.35 hours</li><li><strong>To Varkala(Flight+cab):</strong> ~2 hours</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="rental-vehicles" style="padding: 60px 40px; background: #f7f7f7; text-align: center;">
+      <h2>🚗 Rent a Vehicle With Us</h2>
+      <p>Need a ride to explore the city? We offer affordable and convenient rental vehicles for tourists. Whether you want a bike, scooter, or car — we’ve got you covered! Book your ride now and travel stress-free.</p>
+    
+      <form onsubmit="rentVehicle(event)" style="margin-top: 20px;">
+        <label for="vehicleType" style="font-weight: 500;">Choose a vehicle:</label>
+        <select id="vehicleType" style="margin-left: 10px; padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;">
+          <option>Scooter</option>
+          <option>Bike</option>
+          <option>Car</option>
+        </select>
+        <button type="submit" style="margin-left: 10px; padding: 8px 16px; background-color: #ed733b; color: white; border: none; border-radius: 5px;">Book Now</button>
+      </form>
+    </section>
+    
+    
+    <section id="accommodation">
+      <h2 style="text-align: center; margin-bottom: 30px;">Accommodation Options</h2>
+      <div class="categories">
+    
+        <!-- Varanasi Card -->
+        <div class="card">
+          <h3>🏨 Varanasi</h3>
+          <ul style="text-align: left;">
+            <li onclick="showModal('Hotel Alka', 'Budget hotel near the ghats with basic amenities.')">Hotel Alka</li>
+            <li onclick="showModal('Ganges Inn', 'Affordable rooms close to main temples.')">Ganges Inn</li>
+            <li onclick="showModal('Palace on Ganges', 'Mid-range riverside heritage stay.')">Palace on Ganges</li>
+            <li onclick="showModal('BrijRama Palace', 'Luxury heritage palace right on the Ganga.')">BrijRama Palace</li>
+          </ul>
+        </div>
+    
+        <!-- Varkala Card -->
+        <div class="card">
+          <h3>🏖️ Varkala</h3>
+          <ul style="text-align: left;">
+            <li onclick="showModal('Zostel Varkala', 'Chill hostel for backpackers near the cliff.')">Zostel Varkala</li>
+            <li onclick="showModal('Clafouti Beach Resort', 'Beach view cottages with great food.')">Clafouti Beach Resort</li>
+            <li onclick="showModal('Inda Hotel', 'Boutique hotel with cozy rooms and vibe.')">Inda Hotel</li>
+            <li onclick="showModal('The Sanctum Spring', 'Luxury spa resort overlooking the sea.')">The Sanctum Spring</li>
+          </ul>
+        </div>
+    
+      </div>
+    </section>
+    
+    <!-- Modal -->
+    <div id="stayModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="stayTitle"></h3>
+        <p id="stayDesc"></p>
+        <button class="btn-reserve" onclick="reserveStay()">Reserve Spot</button>
+      </div>
+    </div>
+    
+    <script>
+      function showModal(name, description) {
+        document.getElementById("stayTitle").textContent = name;
+        document.getElementById("stayDesc").textContent = description;
+        document.getElementById("stayModal").style.display = "block";
+      }
+    
+      function closeModal() {
+        document.getElementById("stayModal").style.display = "none";
+      }
+    
+      function reserveStay() {
+        const stayName = document.getElementById("stayTitle").textContent;
+        alert(`You have reserved a spot at ${stayName}. We'll contact you soon!`);
+        closeModal();
+      }
+    
+      // Close modal when clicking outside of it
+      window.onclick = function(event) {
+        const modal = document.getElementById("stayModal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+    </script>
+    
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.6);
+      }
+    
+      .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        text-align: center;
+      }
+    
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    
+      .close:hover {
+        color: black;
+      }
+    
+      ul li {
+        cursor: pointer;
+        margin-bottom: 8px;
+        transition: color 0.2s;
+      }
+    
+      ul li:hover {
+        color: #1e90ff;
+        text-decoration: underline;
+      }
+    
+      .btn-reserve {
+        background-color: #1e90ff;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+    
+      .btn-reserve:hover {
+        background-color: #006ad1;
+      }
+    </style>
+    
+      
+              
+    <section id="temple-hours">
+      <h2 style="text-align: center; margin-bottom: 30px;">🕉️ Temple Timings</h2>
+      <div class="temple-timings">
+    
+        <div class="temple-card">
+          <h3>Kashi Vishwanath Temple (Varanasi)</h3>
+          <ul>
+            <li><strong>Morning:</strong> 4:00 AM – 11:00 AM</li>
+            <li><strong>Afternoon:</strong> 12:00 PM – 1:30 PM</li>
+            <li><strong>Evening:</strong> 5:00 PM – 9:00 PM</li>
+          </ul>
+          <!-- Google Maps Embed for Kashi Vishwanath Temple -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.152542699408!2d83.00097641498188!3d25.2820!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3109e6a3e9d5%3A0x6bdc688f22a83ef!2sDashashwamedh%20Ghat!5e0!3m2!1sen!2sin!4v1649574123456!5m2!1sen!2sin" 
+            width="100%" 
+            height="200" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+    
+        <div class="temple-card">
+          <h3>Janardanaswamy Temple (Varkala)</h3>
+          <ul>
+            <li><strong>Morning:</strong> 5:30 AM – 11:00 AM</li>
+            <li><strong>Evening:</strong> 5:00 PM – 8:00 PM</li>
+          </ul>
+          <!-- Google Maps Embed for Janardanaswamy Temple -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.182490149011!2d76.71336561474455!3d8.737620799758223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05ef9c87efb9ff%3A0xbfb6a759f111b6c!2sVarkala%20Cliff!5e0!3m2!1sen!2sin!4v1649574999999!5m2!1sen!2sin" 
+            width="100%" 
+            height="200" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+    
+      </div>
+    </section>
+    
+         
+      
+        </div>
+      </section>
+      
+    
+
+   
+
+    
+
+   
+
+   
+        </div>
+    </section>
+    <script>
+        function toggleDropdown(id) {
+          const el = document.getElementById(id);
+          el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+        }
+      </script>
+      <section id="map">
+        <h2 style="text-align: center; margin-bottom: 30px;">Location Maps</h2>
+        <div class="categories">
+      
+          <div class="card">
+            <h3>Varanasi</h3>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.152542699408!2d83.00097641498188!3d25.2820!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3109e6a3e9d5%3A0x6bdc688f22a83ef!2sDashashwamedh%20Ghat!5e0!3m2!1sen!2sin!4v1649574123456!5m2!1sen!2sin" 
+              width="100%" 
+              height="200" 
+              style="border:0; border-radius: 10px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+      
+          <div class="card">
+            <h3>Varkala</h3>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.182490149011!2d76.71336561474455!3d8.737620799758223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05ef9c87efb9ff%3A0xbfb6a759f111b6c!2sVarkala%20Cliff!5e0!3m2!1sen!2sin!4v1649574999999!5m2!1sen!2sin" 
+              width="100%" 
+              height="200" 
+              style="border:0; border-radius: 10px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+      
+        </div>
+      </section>
+      
+      
+
+    
+    
+
+    
+
+        <footer id="footer">
+          <p>&copy; 2025 Discover the Unknown | Follow us on social media</p>
+      
+          <div style="margin: 20px 0; color: #ccc;">
+              <p><strong>Email:</strong> <a href="mailto:info@discoverunknown.com" style="color: #f4a261;">info@discoverunknown.com</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+919999999999" style="color: #f4a261;">+91 99999 99999</a></p>
+              <p><strong>Instagram:</strong> <a href="https://instagram.com/discover_unknown" target="_blank" style="color: #f4a261;">@discover_unknown</a></p>
+          </div>
+      
+          <img src="./images/hackaton_logo.jpg" alt="Hackathon Logo" />
+      
+      
+        </footer>
+
+        <script>
+          function rentVehicle(event) {
+            event.preventDefault();
+            const vehicle = document.getElementById("vehicleType").value;
+            alert(`Thanks for choosing a ${vehicle}! Our team will contact you shortly.`);
+          }
+        </script>
+        
+    </body>
+</html>
+
+
+
+
